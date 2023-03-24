@@ -16,18 +16,7 @@ int main() {
     scanf("%d",&opc);
     switch (opc){
     case 1:
-        if (alun<MAX_ALUNOS){            
-            printf("Informe o nome: ");
-            scanf("%s",nome);
-            printf("Informe a matricula: ");
-            scanf("%d",&matricula);
-            printf("Informe o documento: ");
-            scanf("%d",&documento);        
-        } else
-        {
-            printf("Não foi possivel, Lotado!");
-        }
-        break;
+        cadastro();
     case 2: 
         printf("Exibir aluno: ");
         break;

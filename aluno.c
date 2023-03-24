@@ -39,3 +39,17 @@ void atualizar_arquivos(Aluno alunos[], int n) {
     fclose(arquivo);
 }
  */ 
+ void cadastro(){
+    int i;
+    do{
+        printf("\nDigite o nome: ");
+        scanf("%s",&nome[i]);
+        printf("\nDigite a matricula: ");
+        scanf("%s",&matricula[i]);
+        printf("\nDigite o documento: ");
+        scanf("%d",&documento[i]);
+        printf("\nDigite 1 para adicionar ou 2 para sair: ");
+        scanf("%d",&op);
+        i++;
+    }while(op==1);
+}
