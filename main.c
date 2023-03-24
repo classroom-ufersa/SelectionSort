@@ -1,32 +1,40 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <locale.h>
 #include <time.h>
+#define MAX_ALUNOS 5
 
-#include "aluno.c"
-
-int main() {
-    Aluno alunos[MAX_ALUNOS];
-    int n = 0; // número atual de alunos cadastrados
-    clock_t inicio, fim;
-    double tempo_execucao;
-    FILE *fp;
-    fp=fopen("alunos.txt","a+");
-
-    // carrega os alunos do arquivo, se existir
-    carregar_alunos(alunos, &n);
-
-    // cadastra um novo aluno
-    cadastrar_aluno(alunos, &n);
-
-    // ordena os alunos
-    inicio = clock();
-    ordenar_alunos(alunos, n);
-    fim = clock();
-    tempo_execucao = ((double) (fim - inicio)) /CLOCKS_PER_SEC;
-    
-    atualizar_arquivos(alunos,n);
-    
-    printf("Tempo de execucao do processo de ordenacao: %.50f\n",tempo_execucao);
+/* #include "aluno.c"
+ */
+int main() { 
+    int opc, alun, matricula, documento; 
+    char nome[100];
+    printf("\nEscolha:\n");
+    printf("1. Adicionar aluno: \n");
+    printf("2. Exibir alunos: \n");
+    printf("Opção escolhida: ");
+    scanf("%d",&opc);
+    switch (opc){
+    case 1:
+        if (alun<MAX_ALUNOS){            
+            printf("Informe o nome: ");
+            scanf("%s",nome);
+            printf("Informe a matricula: ");
+            scanf("%d",&matricula);
+            printf("Informe o documento: ");
+            scanf("%d",&documento);        
+        } else
+        {
+            printf("Não foi possivel, Lotado!");
+        }
+        break;
+    case 2: 
+        printf("Exibir aluno: ");
+        break;
+    default:
+        printf("Opção inexistente!");
+        break;
+    }
+   
     return 0;
 }
